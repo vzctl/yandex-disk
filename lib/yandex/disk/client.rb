@@ -45,7 +45,7 @@ module Yandex
         mkcol_response(path).success?
       end
 
-      def mkcol!
+      def mkcol! path
         res = mkcol_response(path)
         raise res.body unless res.success?
       end
