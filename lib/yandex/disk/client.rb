@@ -133,13 +133,12 @@ module Yandex
 
       def file_operation_response op, src, dest
         request = @http.build_request(op) do |req|
-          req.url(path)
+          req.url(src)
           req.headers['Destination'] = dest
         end
 
         env = request.to_env(@http)
         res = @http.app.call(env)
-        res.success?
       end
 
       def delete_response path
